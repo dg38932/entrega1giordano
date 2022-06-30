@@ -4,31 +4,30 @@
 
 {% block contenidoQueCambia %} 
 
-<h3>Podes buscar un producto:</h3>
+<h1>Formulario - Buscar Producto:</h1>
 
 <form action="/AppCoder/buscar/" method="GET">
 
-    <input type="number" name="camada" id="camada">
+    <input type="number" name="codigo" id="codigo">
 
     <input type="submit" value="Buscar">
 
 </form>
 
+{% if producto %}
 
-
-{% if cursos %}
-
-<p>Estamos buscando el: {{camada}}</p>
+<p>Estamos buscando el codigo: {{codigo}}</p>
 
 <ul>
-{% for curso in cursos %}
-    <li> {{curso.nombre}} </li>
-    <li> {{curso.camada}} </li>
+{% for p in producto %}
+    <li> DESCRIPCION: {{p.descripcion}} </li>
+    <li> CODIGO: {{p.codigo}} </li>
+    <li> STOCK: {{p.stock}} </li>
 {% endfor %}
-
 </ul>
 
 {% endif %}
 
+<p style='color: red';>{{respuesta}}</p>
 
 {% endblock%} 
